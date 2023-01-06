@@ -175,7 +175,7 @@ function geko_check_update($transient)
 		$transient->response[$theme_slug] = array(
 			'theme' => $theme_slug,
 			'new_version' => $remote_version,
-			'url' => 'https://github.com/job-net/cb_center_wp_theme/theme/',
+			'url' => 'https://github.com/job-net/cb_center_wp_theme/',
 			'package' => 'https://github.com/job-net/cb_center_wp_theme/blob/master/cb-center.zip?raw=true',
 		);
 	}
