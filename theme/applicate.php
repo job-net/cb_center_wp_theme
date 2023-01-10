@@ -100,6 +100,7 @@ $post = get_post($tdecode);
 			</form>
 		</div>
 	</div>
+	</div>
 <?php } else { ?>
 
 	<div class="flex items-center justify-center my-10 bg-white py-48">
