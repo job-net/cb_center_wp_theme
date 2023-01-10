@@ -33,6 +33,7 @@ if (!defined('ABSPATH')) {
 					</div>
 					<div class="text-xs">
 						<?php if ( $website = get_the_company_website() ) : ?>
+
 							<a href="<?php echo esc_url( $website ); ?>" rel="nofollow" target="_blank"><?php esc_html_e( 'Website', 'wp-job-manager' ); ?></a>
 						<?php endif; ?>
 					</div>
@@ -58,9 +59,11 @@ if (!defined('ABSPATH')) {
 				?>
 			</div>
 
+			<?php $id = get_the_ID() ?>
+			<?php $idb64 = base64_encode($id); ?>
+			<?php $aplicate = get_site_url() . '/aplicar/?t=' . $idb64; ?>
 
-
-			<a href="#"
+			<a href="<?php echo $aplicate;?>"
 			   class="no-underline ">
 				<div class="bg-teal-600 rounded-2xl text-white mx-10 px-10 py-4 mx-auto"><?php esc_attr_e('Apply for job', 'wp-job-manager'); ?></div>
 			</a>
