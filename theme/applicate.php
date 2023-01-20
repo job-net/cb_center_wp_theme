@@ -4,18 +4,21 @@ $id = $_GET['t'];
 $tdecode = base64_decode($id);
 $post = get_post($tdecode);
 ?>
+
 <div class="max-w-4xl mx-auto my-10">
-<?php if ($post->_filled == 0 && $post != null) { ?>
+<?php if ($post->_filled == 0 && $post != null) {
+	?>
 	<div class="flex items-center justify-center p-12">
 		<div class="mx-auto w-full max-w-[550px] bg-white">
 			<form class="py-6 px-9"
-					action="<?php echo esc_url(apply_filters('job_manager_apply_with_resume_form_action', get_permalink($post->ID))); ?>"
+				action="<?php echo get_template_directory_uri() . '/process_applicate.php'; ?>"
 					method="POST" >
 				<div class="mb-5">
 					<label for="email"
 							class="mb-3 block text-base font-medium text-[#07074D]" >
 						Plaza a la que aplicas:
 					</label>
+					<input hidden id="applicant_job_id" name="applicant_job_id" value="<?php echo $post->ID; ?>">
 					<input
 							type="text"
 							name="job"
@@ -25,23 +28,35 @@ $post = get_post($tdecode);
 							class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"/>
 				</div>
 				<div class="mb-5">
-					<label for="name"
+					<label for="applicant_name"
 							class="mb-3 block text-base font-medium text-[#07074D]" >
 						Nombre completo
 					</label>
 					<input
 							type="text"
-							name="name"
-							id="name"
+							name="applicant_name"
+							id="applicant_name"
 							placeholder="Juan Pérez"
 							class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-teal-600 focus:shadow-md"/>
 				</div>
 				<div class="mb-5">
-					<label for="email" class="mb-3 block text-base font-medium text-[#07074D]">Correo electrónico: </label>
+					<label for="applicant_dpi"
+						   class="mb-3 block text-base font-medium text-[#07074D]" >
+						DPI
+					</label>
+					<input
+							type="text"
+							name="applicant_dpi"
+							id="applicant_dpi"
+							placeholder="2501200000005"
+							class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-teal-600 focus:shadow-md"/>
+				</div>
+				<div class="mb-5">
+					<label for="applicant_email" class="mb-3 block text-base font-medium text-[#07074D]">Correo electrónico: </label>
 					<input
 							type="email"
-							name="email"
-							id="email"
+							name="applicant_email"
+							id="applicant_email"
 							placeholder="tucorreo@gmail.com"
 							class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-teal-600 focus:shadow-md"
 					/>
@@ -53,8 +68,8 @@ $post = get_post($tdecode);
 					</label>
 
 					<div class="mb-8">
-						<input type="file" name="file" id="file" class="sr-only"/>
-						<label for="file" class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center">
+						<input type="file" name="applicant_filex" id="applicant_filex" class="sr-only"/>
+						<label for="applicant_filex" name="dddd" id="dddd" class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center">
 							<div>
 								<span class="mb-2 block text-xl font-semibold text-[#07074D]">Suelta tu archivo aquí</span>
 								<span class="mb-2 block text-base font-medium text-[#6B7280]"> O </span>
@@ -63,10 +78,10 @@ $post = get_post($tdecode);
 						</label>
 					</div>
 
-					<div class="mb-5 rounded-md bg-[#F5F7FB] py-4 px-8">
+					<div class="mb-5 rounded-md bg-[#F5F7FB] py-4 px-8" id="has_file" style="display:none">
 						<div class="flex items-center justify-between">
 							<span class="truncate pr-3 text-base font-medium text-[#07074D]">
-							  archivo.pdf
+							  <span id="name_file"></span>
 							</span>
 							<button class="text-[#07074D]">
 								<svg
@@ -93,10 +108,17 @@ $post = get_post($tdecode);
 						</div>
 					</div>
 
-					<button class="hover:shadow-form w-full rounded-md bg-teal-600 py-3 px-8 text-center text-base font-semibold text-white outline-none">
+					<button type="submit" class="hover:shadow-form w-full rounded-md bg-teal-600 py-3 px-8 text-center text-base font-semibold text-white outline-none">
 						Aplicar ahora
 					</button>
 				</div>
+				<script>
+					document.getElementById('applicant_filex').addEventListener('change',(e)=>{
+						document.getElementById('dddd').style.display = 'none';
+						document.getElementById('has_file').style.display = 'block';
+						document.getElementById('name_file').innerHTML = e.target.files[0].name;
+					})
+				</script>
 			</form>
 		</div>
 	</div>
@@ -123,6 +145,7 @@ $post = get_post($tdecode);
 		</div>
 	</div>
 </div>
+
 	<?php
 }
 get_footer();
