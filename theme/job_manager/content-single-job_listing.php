@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 global $post;
 
 if (job_manager_user_can_view_job_listing($post->ID)) : ?>
-	<div class="single_job_listing max-w-5xl flex flex-col md:flex-row space-x-0 space-y-8 md:space-x-4 md:space-y-0">
+	<div class="single_job_listing max-w-5xl flex flex-col md:flex-row space-x-0 space-y-8 md:space-x-4 md:space-y-0 mb-6">
 		<div class="basis-2/3 w-full overflow-hidden rounded-2xl shadow-xl ">
 			<?php if (get_option('job_manager_hide_expired_content', 1) && 'expired' === $post->post_status) : ?>
 				<div class="job-manager-info"><?php _e('This listing has expired.', 'wp-job-manager'); ?></div>
