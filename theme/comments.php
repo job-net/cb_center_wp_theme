@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="shadow-sm rounded-xl">
+<div id="comments" class="shadow rounded-xl p-6 mx-auto max-w-4xl">
 
 	<?php
 	// You can start editing here -- including this comment!

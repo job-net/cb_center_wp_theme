@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<section id="primary">
+	<section id="primary" class="max-w-5xl border rounded-2xl mx-auto mt-6 mb-6 p-12">
 		<main id="main">
 
 			<div>

@@ -22,7 +22,7 @@
 	</header><!-- .entry-header -->
 
 
-	<div class="max-w-5xl mx-auto">
+	<div class="max-w-5xl mx-auto <?php if(is_singular('applicant')){ echo 'text-2xl'; } ?>" >
 		<?php
 		the_content(
 			sprintf(

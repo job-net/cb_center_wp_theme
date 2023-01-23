@@ -11,7 +11,7 @@ get_header();
 ?>
 
 	<section id="primary" class="p-4">
-		<main id="main">
+		<main id="main" class="max-w-7xl mx-auto border rounded-xl p-6">
 
 			<?php
 			/* Start the Loop */
