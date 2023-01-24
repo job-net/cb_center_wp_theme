@@ -3,7 +3,7 @@
 
 		<div class="bg-gray-50 flex flex-row rounded-xl overflow-hidden">
 			<div class="basis-1/4">
-				<img class="company_logo" src="http://cb.test/wp-content/uploads/2023/01/cbcgtblue-150x150.png"
+				<img class="company_logo" src="https://cbcentergt.com/wp-content/uploads/2023/01/cbcgtblue-150x150.png"
 					 alt="CB Center">
 			</div>
 			<div class="basis-3/4 p-4">
@@ -11,7 +11,7 @@
 					<strong>CB Center</strong></div>
 				<div class="text-xs">
 
-					<a href="http://cb.test" rel="nofollow" target="_blank">Web</a>
+					<a href="https://cbcentergt.com/" rel="nofollow" target="_blank">Web</a>
 				</div>
 
 				<div class="text-xs">
