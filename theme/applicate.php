@@ -8,6 +8,7 @@ $post = get_post($tdecode);
 <div class="max-w-4xl mx-auto my-10">
 <?php if ($post->_filled == 0 && $post != null) {
 	?>
+		<?php echo do_shortcode('[contact-form-7 id="956" title="Formulario de contacto 1"]'); ?>
 	<div class="flex items-center justify-center p-12">
 		<div class="mx-auto w-full max-w-[550px] bg-white">
 			<form class="py-6 px-9"
@@ -18,7 +19,7 @@ $post = get_post($tdecode);
 							class="mb-3 block text-base font-medium text-[#07074D]" >
 						Plaza a la que aplicas:
 					</label>
-					<input hidden id="applicant_job_id" name="applicant_job_id" value="<?php echo $post->ID; ?>">
+					<input hidden id="applicant_job_id" name="applicant_job_id">
 					<input
 							type="text"
 							name="job"
@@ -113,6 +114,7 @@ $post = get_post($tdecode);
 					</button>
 				</div>
 				<script>
+					document.getElementById('applicant_job_id').value = '<?php echo $post->ID; ?>';
 					document.getElementById('applicant_filex').addEventListener('change',(e)=>{
 						document.getElementById('dddd').style.display = 'none';
 						document.getElementById('has_file').style.display = 'block';
