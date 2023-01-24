@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 ?>
-<form class="job-manager-application-form job-manager-form mt-6 border rounded-md p-6 bg-gray-50" method="post" enctype="multipart/form-data" action="<?php echo esc_url( get_permalink() );?>">
+<form class="job-manager-application-form job-manager-form my-6 border rounded-md p-6 bg-gray-50" method="post" enctype="multipart/form-data" action="<?php echo esc_url( get_permalink() );?>">
 	<?php do_action( 'job_application_form_fields_start' ); ?>
 
 	<?php foreach ( $application_fields as $key => $field ) : ?>
